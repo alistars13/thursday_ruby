@@ -27,15 +27,6 @@ end
 #excecution de la methode
 journalist_with_Aude
 
-#nombre de journalistes ayant une majuscule
-def journalist_with_upper_case
-  journalist_with_upper_case = []
-  journalist_with_upper_case = @journalist.select { |v| v =~ /[A-Z]/ }
-  puts "il y a : #{journalist_with_upper_case.length} journalistes avec une adresse contenant une majuscule."
-end
-#excecution de la methode
-journalist_with_upper_case
-
 #creation du tableau pour ranger les valeurs sans @
 @journalist_without_at = []
 
@@ -52,6 +43,15 @@ def journalist_start_with_upper_case
 end
 #excecution de la methode
 journalist_start_with_upper_case
+
+#nombre de journalistes ayant une majuscule
+def journalist_with_upper_case
+  journalist_with_upper_case = []
+  journalist_with_upper_case = @journalist.select { |v| v =~ /[A-Z]/ }
+  puts "il y a : #{journalist_with_upper_case.length} journalistes avec une adresse contenant une majuscule."
+end
+#excecution de la methode
+journalist_with_upper_case
 
 #nombre de journaliste contenant un underscore
 def journalist_with_underscore
