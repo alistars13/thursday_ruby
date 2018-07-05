@@ -14,10 +14,9 @@ end
 
 #definition de la plus grande et de la plus petite crypto
 def def_max_and_min
-  @max_crypto = @crypto_value_without_dollar.max_by{|k| k}
-  @min_crypto = @crypto_value_without_dollar.min_by{|k| k}
+  @max_crypto = @crypto_value_without_dollar.max
+  @min_crypto = @crypto_value_without_dollar.min
 end
-
 
 #reponse avec prise de la valeur min / max pour trouver le nom de la crypto dans le hash @crypto_hash
 def show_name_and_value (n)
@@ -35,14 +34,39 @@ def number_coin
 end
 #excecution de la methode pour trouver le nombre de "coin"
 number_coin
-#creation du tableau avec les valeurs en dessous de 6000
+
+#creation du tableau pour ranger les valeurs inferieurs 6000
 @values_under_six_thousand = []
-#introduction des valeurs en dessous de 6000 dans le tableau
+
+#introduction des valeurs inferieurs à 6000 dans le tableau
 def values_under_six_thousand
 @values_under_six_thousand = @crypto_value_without_dollar.select{|v| v <= 6000}
 end
+#excecution de la methode pour introduire les crypto en dessous de 6000 dans le tableau
 values_under_six_thousand
+
 #prise de chaque valeur du tableau pour aller chercher dans le Hash @crypto_hash le nom correspondant a la valeur.
 @values_under_six_thousand.each do |i|
   puts @crypto_hash[i]
 end
+
+#definition de la valeur la plus grande dans le tableau @values_under_six_thousand && recherche du hash correspondant dans @crypto_hash
+def highest_crytpo_in_under_six_thousand
+  @highest_crytpo_in_under_six_thousand = @values_under_six_thousand.max
+  puts  "la crypto la plus grande parmi celles inferieurs à 6000 est : " + @crypto_hash[@highest_crytpo_in_under_six_thousand]+ " d'une valeur de : $#{@highest_crytpo_in_under_six_thousand}"
+end
+#excecution de la methode pour trouver la plus grande valeur en dessous de 6000 en reprenant la forme precedement utiliser pour trouver la valeur la plus grande de l'ensemble des cryptos.
+highest_crytpo_in_under_six_thousand
+
+
+#programme pour remercier le correcteur.
+puts
+puts
+puts "quel est ton prénom cher correcteur ?"
+print "> "
+name = gets.chomp
+puts
+puts
+puts "Merci pour la correction #{name} <3 <3"
+puts
+puts
