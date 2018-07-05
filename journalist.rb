@@ -30,6 +30,21 @@ def journalist_with_upper_case
 end
 journalist_with_upper_case
 
+#creation du tableau pour ranger les valeurs sans @
+@journalist_without_at = []
+
+#boucle pour enlever le @
+@journalist.each do |i|
+@journalist_without_at << ("((#{i}))".delete '(@)')
+end
+# nombre de journalistes ayant une handle commencant par une majuscule
+def journalist_start_with_upper_case
+  journalist_with_upper_case = []
+  journalist_with_upper_case = @journalist_without_at.first { |v| v =~/A-Z/ }
+  puts "il y a : #{journalist_start_with_upper_case.length} journalistes avec une adresse debutant par une majuscule."
+
+end
+journalist_start_with_upper_case
 #nombre de journaliste contenant un underscore
 def journalist_with_underscore
   journalist_with_underscore = []
